@@ -1,10 +1,19 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
-import Link from "next/link";
-import Search from "../component/search";
+import React from "react";
+import {getFormattedDate, convertToCelsius} from "../util/calc";
 
 export default function Home() {
+  const [city, setCity] = React.useState("");
+  const [temp, setTemp] = React.useState({});
+  const [description, setDescription] = React.useState("");
+  const [high, setHigh] = React.useState({});
+  const [low, setLow] = React.useState({});
+  const [wind, setWind] = React.useState({});
+  const [icon, setIcon] = React.useState("");
+  const [week, setWeek] = React.useState([]);
+
   return (
     <>
       <Head>
@@ -14,7 +23,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Search />
+        <div>
+          {getFormattedDate()}
+        </div>
+        <p>
+          {convertToCelsius(45)}
+        </p>
       </main>
     </>
   );
