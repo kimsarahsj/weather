@@ -26,8 +26,9 @@ export default function Home() {
         <div>
           {getFormattedDate()}
         </div>
+        <h3>React Weather App</h3>
         <p>
-          {convertToCelsius(45)}
+          {convertToCelsius(75)}°C
         </p>
       </main>
     </>
