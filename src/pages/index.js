@@ -30,6 +30,7 @@ export default function Home() {
         <p>
           {convertToCelsius(75)}°C
         </p>
+        <footer>This website is <a href="https://github.com/kimsarahsj/weather">open-sourced</a> and coded by Sarah Kim</footer>
       </main>
     </>
   );
