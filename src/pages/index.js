@@ -14,6 +14,20 @@ export default function Home() {
   const [icon, setIcon] = React.useState("");
   const [week, setWeek] = React.useState([]);
 
+  React.useEffect(() => {
+    let apiKey = "6bfa54f242cbb59343d4e58db578dc61";
+    let city = "atlanta";
+    let unit = "imperial";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+
+    fetch(apiUrl, { method: "GET" })
+      .then((response) => response.json())
+      .then((data) => {
+        setCity(data.name);
+        setTemp(Math.round(data.main.temp));
+      });
+  }, [city, temp]);
+
   return (
     <>
       <Head>
@@ -26,9 +40,9 @@ export default function Home() {
         <div>
           {getFormattedDate()}
         </div>
-        <h3>React Weather App</h3>
+        <h1>{city}</h1>
         <p>
-          {convertToCelsius(75)}°C
+          {convertToCelsius(temp)}°C
         </p>
         <footer>This website is <a href="https://github.com/kimsarahsj/weather">open-sourced</a> and coded by Sarah Kim</footer>
       </main>
