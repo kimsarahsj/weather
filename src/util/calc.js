@@ -49,6 +49,10 @@
     return Math.round((parseFloat(temp) - 32) * (5 / 9));
   }
 
+  export function convertToKM(miles) {
+    return miles * 1.609344;
+  }
+
 
 
 
